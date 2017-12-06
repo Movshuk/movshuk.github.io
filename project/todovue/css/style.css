@@ -1,0 +1,98 @@
+html {
+				height: 100%;
+		}
+
+		body {
+				/*background-image: linear-gradient(45deg, #f8f9fb, #75a2da);*/
+				background: url(../images/logo.jpg) center 0 no-repeat;
+
+		}
+
+		.tabs{
+				width: 398px;
+				margin: 80px auto;
+				font-family: sans-serif;
+		}
+
+		.tab-h {
+				display: inline-block;
+				width: 175px;
+				height: 40px;
+				line-height: 30px;
+				/*border: 3px solid grey;*/
+				text-align: center;
+				border-radius: 5px 5px 0 0; 
+				cursor: pointer;
+				/*background-color: #DCDCDC;*/
+				background-image: linear-gradient(45deg, #f4f4ff, #d4d5d8);
+ 		}
+	
+		.tab-b {
+				display: none;
+				padding: 20px;
+				/*border: 3px solid #5ad427;*/
+				/*overflow: auto;*/
+				height: 300px;
+		}
+
+		.tabs-body {
+				width: 398px;
+				position: relative;
+				top: -1px;
+				z-index: 1;
+				background-color: white;
+				border-radius: 0 5px 5px 5px;
+				box-shadow: 3px 5px 6px #2d2b2b;;
+		}
+
+		.tabs-header {
+				width: 399px;
+				position: relative;
+				z-index: 2;
+		}
+
+		.active{
+				border-bottom: 1px solid white;
+				/*background-color: white;*/
+				background: linear-gradient(45deg, white, #ffffff);
+		}
+
+		.taskCompleted{
+				text-decoration: line-through;
+		}
+
+		span {
+
+	 		cursor: pointer;
+	 		color: red;
+	 	}
+
+	 .label {
+			text-align: right;
+			padding-bottom: 20px;
+    	padding-top: 10px;
+			color: white;
+			font-weight: bold;
+
+		}
+
+		.taskInput {
+				width: 342px;
+				margin: 0 auto;
+		}
+
+		.scroll {
+
+			border: 1px solid grey;
+			height: 250px;
+			overflow: auto;
+			border-radius: 5px;
+			
+		}
+
+		ul {
+			margin: 1em;
+			padding: 0;
+		}
+
+		
