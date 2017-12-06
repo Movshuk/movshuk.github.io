@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ToDo App</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+
+		<div class="tabs" id="todo">
+				<div class="label"> ToDos List VueJS <br>with LocalStorage</div>
+				<div class="tabs-header">
+						<div class="tab-h active" data-tab="0"> Сделать [{{tasks.length}}] </div>
+						<div class="tab-h" data-tab="1"> Выполнено [{{removedTasks.length}}] </div>
+				</div>
+				<div class="tabs-body">
+
+						<div class="tab-b" style="display: block">
+								<form v-on:submit="addTask">
+										<input v-model="newTask" type="text" name="" placeholder="Enter the task..." class="taskInput">
+								</form>
+								<br>
+								<div class="scroll">
+									<ul type="none" align="left">
+									<li v-for="task in tasks" align="left">
+
+											
+												<input type="checkbox" name="" v-model="task.completed" v-on:click="taskChecked(task)" > 
+											
+											
+											
+											
+
+											<span v-on:click="removeTask(task)" class="close">&times;</span>
+											<label :class="{taskCompleted: task.completed}" >
+											{{task.text}} 
+											</label>
+
+											
+
+									</li>
+									</ul>
+								</div>
+								
+								
+						</div>
+
+						<div class="tab-b">
+							<div class="scroll">
+								<ul type="none">
+									<li v-for="task in removedTasks" align="left">
+										<label class="removeTask">
+												<span v-on:click="deleteTask(task)" class="close">&times;</span>   {{task.text}}
+										</label>
+										
+									</li>
+								</ul>
+							</div>
+								
+						</div>
+				</div>
+		</div>
+
+
+
+<script src="vue.js"> </script>
+
+<script type="text/javascript">
+	window.onload = function () {
+		document.querySelector('.tabs-header').addEventListener('click', fooTabs);
+
+		function fooTabs(event) {
+
+				if (event.target.className == 'tab-h') {
+						var dataTab = event.target.getAttribute('data-tab');	
+						var tabBody = document.getElementsByClassName('tab-b'); 
+						
+						var tabH = document.getElementsByClassName('tab-h');
+						for(var i=0; i < tabH.length; i++) {
+								tabH[i].classList.remove('active');
+						}
+
+						event.target.classList.add('active');	// проблема
+						var arrayTabC = document.getElementsByClassName('tab-c'); // массив вкладок контента
+						for (var i=0; i < tabBody.length; i++){
+								if (dataTab == i) {
+										tabBody[i].style.display = 'block';
+								}
+								else {
+										tabBody[i].style.display = 'none';
+									}
+						}
+				}
+		}	
+	}
+</script>
+
+<script>
+	var todo = new Vue({
+		el : '#todo',
+		ready : console.log('Vue Model work!'),
+
+		// что такое маунтед?
+		mounted: function(){
+		            var tasks = localStorage.getItem(this.storageKey);
+		            var removedTasks = localStorage.getItem(this.storageKey2);
+		            var self = this;
+		            if(tasks){
+		                this.tasks = JSON.parse(tasks);
+		            }
+		            if(removedTasks){
+		            		this.removedTasks = JSON.parse(removedTasks);
+		            }
+
+		            window.addEventListener('storage', function(e){
+		                if(self.storageKey == e.key) {
+		                    var newData = JSON.parse(e.newValue);
+		                    self.tasks = newData;
+		                }
+		                else if (self.storageKey2 == e.key) {
+		                    var newData2 = JSON.parse(e.newValue);
+		                    self.removedTasks = newData2;
+		                }
+		            })
+
+		        },
+
+
+
+
+		methods : {
+			addTask: function(e){
+				e.preventDefault();
+				this.tasks.push({ text: this.newTask, completed: false });
+				console.log(this.newTask);// вывод на печать введенной задачи только текст
+				this.newTask = "";
+				this.addItemToStorage();// допилить
+			},
+			removeTask : function (task){							
+				 this.tasks.splice(this.tasks.indexOf(task), 1);
+				 this.removedTasks.push({text: task.text, completed: false}); // создание массива удаленных дел
+				 console.log(this.removedTasks);
+				 this.addItemToStorage();// допилить
+				 localStorage.setItem(this.storageKey2, JSON.stringify(this.removedTasks));//
+			},
+			deleteTask : function (task){
+				this.removedTasks.splice(this.removedTasks.indexOf(task), 1);
+				localStorage.setItem(this.storageKey2, JSON.stringify(this.removedTasks));//
+			},
+
+			// сохранение в локал сторадж
+			addItemToStorage: function(){
+        localStorage.setItem(this.storageKey, JSON.stringify(this.tasks));
+      },
+
+      taskChecked: function(task){
+      		console.log(JSON.stringify(this.tasks));
+      		//console.log(this.tasks.indexOf(task));
+      		// блок который изменяет статут исполнения да или нет
+      		if (this.tasks[this.tasks.indexOf(task)].completed != true){
+      			this.tasks[this.tasks.indexOf(task)].completed = true;
+      		}
+      		else {
+      			this.tasks[this.tasks.indexOf(task)].completed = false;
+      		}
+      		this.addItemToStorage();
+
+      } 
+
+
+		},
+		data : {
+			tasks : [],
+			newTask : '',
+			removedTasks : [],
+			storageKey: 'todo-list',
+			storageKey2: 'todo-list2'
+		}
+	});
+
+
+</script>
+</body>
+</html>
