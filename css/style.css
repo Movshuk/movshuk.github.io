@@ -1,0 +1,321 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+aside, footer, address, section {
+	display:block;
+}
+
+img, iframe, video, embed {
+	max-width:100%!important;
+}
+
+.clr {
+	clear: both;
+}
+
+/* Tipografika */
+
+h1 {
+	font-size: 4.6em;
+	text-align: left;
+	color: #fff;
+	text-transform: uppercase;
+	margin-top: 0.2em;
+}
+
+h2 {
+	font: bold 2.5em 'PT Sans Narrow', sans-serif;
+	text-align: left;
+	color: #fff;
+	text-transform: uppercase;
+	margin: 0 0 0 0;
+}
+
+.button {
+	background: #fed136;
+	display: block;
+	font: bold 1.125em 'PT Sans Narrow', sans-serif;
+	text-transform: uppercase;
+	width: 240px;
+	margin: 1.8em 17.1em 9.5em auto;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	padding: 1em 0;
+	border-radius: 5px;
+
+}
+
+.button:hover {
+	background: #fbc81b;
+}
+
+#skills h2 {
+	color: #222;
+	text-align: center;
+	margin: 2em 0 0.5em;
+}
+
+
+#skilList h2 {
+	color: #222;
+	text-align: center;
+	margin: 2.5em 0 0.5em;
+}
+
+#portfolio h2 {
+	color: #222;
+	text-align: center;
+	margin: 2.5em 0 0.5em;
+}
+
+#contact h2 {
+	color: #fff;
+	text-align: center;
+	margin: 2.5em 0 0.5em;
+}
+
+.univer {
+    font: 1em 'PT Sans Narrow', sans-serif;
+    color: #222;
+}
+
+.text {
+    font: 1.5em 'PT Sans Narrow', sans-serif;
+    color: #fff;
+    margin: 1em;
+}
+
+.status {
+	color: #777;
+}
+
+.layout span {
+	font: 1.7em 'PT Sans Narrow', sans-serif;
+   color: #222;
+   margin: 1.5em;
+}
+
+.skilList {
+	width: 75%;
+	margin: 0 auto;
+}
+
+/* layout */
+
+#page {
+	width: 100%;
+	font: 100% 'PT Sans Narrow', sans-serif;
+}
+
+#header {
+	background: url(../images/logo3.jpg) center 0 no-repeat;
+	/*max-width:1500px;*/
+}
+
+.layout {
+	width: 940px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#header img {
+	margin-top: 5em;
+	border: 7px solid #fff;
+	border-radius: 100%;
+	float: left;
+}
+
+#header menu, .myname {
+	width: 55%;
+	float: right;
+	padding: 2em;
+}
+
+#header menu li a:hover {
+	color: #fbc81b;
+}
+
+#header menu li {
+	float: left;
+	list-style: none;
+	padding: 2em 30px 0 0;
+}
+
+#header menu li a {
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.box2 {
+	width: 48%;
+	float: left;
+	margin-right: 2%;
+}
+
+.box2m {
+	margin: 1em;
+}
+
+.box2i {
+	display: block;
+	margin: 0 27em;
+}
+
+#toTop {
+	width: 100px;
+	border: 1px solid #ccc;
+	background: rgba(0,0,0,0.5);
+	text-align: center;
+	padding: 0.5em 15px;
+	position: fixed;
+	bottom: 2em;
+	right: 5%;
+	cursor: pointer;
+	display: none;
+	color: #fff;
+	font-size: 1em;
+	border-radius: 4px;
+}
+
+#toTop:hover {
+	background: rgba(0,0,0,0.9);
+}
+
+.social a {
+	width: 41px;
+	height: 41px;
+	display: inline-block;
+	margin: 1em 0;
+}
+
+.email {
+	background: url(../images/email.png);
+	background-position: 0 0;
+}
+
+.email:hover {
+	background-position: -42px 0;
+}
+
+.skype {
+	background: url(../images/skype.png);
+	background-position: 0 0;
+}
+
+.skype:hover {
+	background-position: -42px 0;
+}
+
+.github {
+	background: url(../images/gh.png);
+	background-position: 0 0;
+}
+
+.github:hover {
+	background-position: -42px 0;
+}
+
+.vk {
+	background: url(../images/vk.png);
+	background-position: 0 0;
+}
+
+.vk:hover {
+	background-position: -42px 0;
+}
+
+#skilList {
+	background: #f7f7f7;
+	padding-bottom: 6.8em;
+}
+
+#contact {
+    background: url(../images/map.png) no-repeat top right #222;
+    padding-bottom: 6.8em;
+}
+
+.social {
+	text-align: center;
+	overflow: hidden;
+}
+
+.box2m a {
+	text-decoration: none;
+	color: #fed136;
+}
+
+.box2m a:hover {
+	color: #fbc81b;
+}
+
+.box3 {
+	width: 31%;
+	padding: 0 1%;
+	float: left;
+	text-align: center;
+}
+
+#portfolio {
+	background: #fff;
+	padding-bottom: 6.8em;
+}
+
+#portfolio .box3 {
+	margin: 0 2% 3.125em 0;
+	padding: 0 0 1.125em 0;
+	
+}
+
+#portfolio .box3.last {
+	margin: 0 0 3.125em 0; 
+}
+
+#portfolio .box3 a{
+	display: block;
+	overflow: hidden;
+	text-decoration: none;
+	height: 301px;
+}
+
+#portfolio .box3 img{
+	transition: all 0.2s linear;
+	border: none;
+}
+
+#portfolio .box3 div {
+	width:  auto;
+	height: 301px;
+	position: relative;
+	background: rgba(0,0,0,0.7);
+	overflow: hidden;
+	transition: all 0.4s linear;
+	opacity: 0;
+		transform: rotate(6deg);
+}
+
+#portfolio .box3 span {
+	display: block;
+	width: 60%;
+	margin: 3em auto;
+	color: #feeb4e;
+	border: 4px solid #feeb4e;
+	padding: 0.5em 10px;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+#portfolio .box3 a:hover img {
+	margin-top:  -30px;
+}
+
+#portfolio .box3 a:hover div {
+	bottom: 200px;
+	opacity: 1;
+	transform: rotate(0);
+}
